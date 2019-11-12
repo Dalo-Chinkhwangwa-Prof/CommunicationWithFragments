@@ -15,7 +15,7 @@ class FragmentB : Fragment(){
     }
 
     interface FragmentBDelegate {
-        fun sendMessageB(message: String)
+        fun senMessageToFragmentA(message: String)
     }
 
     override fun onCreateView(
@@ -29,7 +29,7 @@ class FragmentB : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragment_two_button.setOnClickListener {
-            fragmentDelegate.sendMessageB("Fragment B says hi!")
+            fragmentDelegate.senMessageToFragmentA("Fragment B says hi!")
         }
     }
 

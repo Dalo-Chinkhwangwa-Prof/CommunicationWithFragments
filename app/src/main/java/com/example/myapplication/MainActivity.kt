@@ -8,11 +8,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragmentA.FragmentADelegate, FragmentB.FragmentBDelegate {
 
-    override fun sendMessage(message: String) {
+    override fun sendMessageToFragmentB(message: String) {
         fragmentB.displayMessageInB(message)
     }
 
-    override fun sendMessageB(message: String) {
+    override fun senMessageToFragmentA(message: String) {
         fragmentA.displayMessageInA(message)
     }
 
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), FragmentA.FragmentADelegate, FragmentB
 
     override fun onAttachFragment(fragment: Fragment) {
         super.onAttachFragment(fragment)
-        if(fragment is FragmentA)
+        if (fragment is FragmentA)
             (fragment as FragmentA).setDelegate(this)
         else
             (fragment as FragmentB).setDelegate(this)
